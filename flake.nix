@@ -19,7 +19,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.FranklinAzriel = import ./home-manager.nix;
+            home-manager.users.FranklinAzriel = import ./home-manager/home-manager.nix;
           }
         ];
       };
