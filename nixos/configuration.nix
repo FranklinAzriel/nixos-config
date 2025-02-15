@@ -5,10 +5,12 @@
       ../hardware-configuration.nix
 
       ./bootloader.nix
-      ./network.nix
       ./desktop.nix
+      ./drivers.nix
+      ./network.nix
       ./user.nix
   ];
+  
   nixpkgs.config.allowUnfree = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
