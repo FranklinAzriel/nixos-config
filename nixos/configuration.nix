@@ -1,16 +1,31 @@
 { config, lib, pkgs, ... }: {
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
 
       ./bootloader.nix
       ./desktop.nix
+      ./cachy.nix
       ./drivers.nix
+      ./kernel.nix
       ./network.nix
       ./user.nix
+      ./virtualisation.nix
   ];
   
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    flake = "/etc/nixos";
+  };
+
+  zramSwap = {
+    enable = true;
+    priority = 32767;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
