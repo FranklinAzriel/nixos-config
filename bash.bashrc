@@ -1,0 +1,1 @@
+PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null); PS1_CMD2=$()'; PS1='\[\e[91;1m\]\u\[\e[0m\] \[\e[93m\]at\[\e[0m\] \[\e[92;1m\]\H\[\e[0m\] \[\e[96m\]in\[\e[0m\] \[\e[94;1m\]\w\[\e[0m\] \[\e[95m\]${PS1_CMD1}\[\e[0m\] \n\[\e[92m\]\\$\[\e[0m\] \[\e]0;${PS1_CMD2}\a\]'

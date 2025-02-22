@@ -8,6 +8,7 @@
         ./gpg.nix
         
         ./packages.nix
+        ./shell.nix
     ];
 
     # Let home Manager install and manage itself.
