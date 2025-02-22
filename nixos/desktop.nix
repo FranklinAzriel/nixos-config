@@ -11,7 +11,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      kdePackages.plasma-vault
 
     ];
-
 }
