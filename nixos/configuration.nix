@@ -7,7 +7,6 @@
 
       ./bootloader.nix
       ./desktop.nix
-      ./cachy.nix
       ./drivers.nix
       ./kernel.nix
       ./network.nix
