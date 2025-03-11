@@ -2,13 +2,15 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+    
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
