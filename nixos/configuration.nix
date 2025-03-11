@@ -9,6 +9,7 @@
       ./desktop.nix
       ./drivers.nix
       ./kernel.nix
+      ./luks.nix
       ./network.nix
       ./user.nix
       ./virtualisation.nix

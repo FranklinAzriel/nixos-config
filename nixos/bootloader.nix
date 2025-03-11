@@ -10,16 +10,18 @@
     pkiBundle = "/var/lib/sbctl";
   };
   
+  boot.initrd.systemd.enable = true;
+  
   boot.loader = {
     efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/efi";
     };
   };
 
   environment.systemPackages = [
-    # For debugging and troubleshooting Secure Boot.
     pkgs.sbctl
+    pkgs.efibootmgr
   ];
 
   boot = {    
@@ -38,10 +40,8 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "rd.luks.options=tpm2-device=auto"
     ];
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
-    loader.timeout = 0;
+    loader.timeout = 3;
   };
 }
