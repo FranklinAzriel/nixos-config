@@ -8,3 +8,9 @@ if [ -d "$HOME/Android/Sdk" ]; then
     export PATH=$PATH:$ANDROID_HOME/emulator # Add the emulator directory to the PATH environment variable so that the Android emulator can be run from any directory.
     export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin # Add the cmdline-tools/latest/bin directory to the PATH environment variable so that sdkmanager and avdmanager can be run from any directory.
 fi
+
+# Flutter SDK
+# Check if the Flutter SDK directory exists in the user's home directory.
+if [ -d "$HOME/flutter/bin" ]; then
+    export PATH="$PATH:$HOME/flutter/bin" # Add the Flutter SDK directory to the PATH environment variable so that flutter can be run from any directory.
+fi
