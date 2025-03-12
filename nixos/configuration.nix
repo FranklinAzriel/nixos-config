@@ -11,6 +11,7 @@
       ./kernel.nix
       ./luks.nix
       ./network.nix
+      ./packages.nix
       ./user.nix
       ./virtualisation.nix
   ];
