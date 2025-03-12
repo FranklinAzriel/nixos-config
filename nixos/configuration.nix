@@ -12,6 +12,7 @@
       ./luks.nix
       ./network.nix
       ./packages.nix
+      ./steam.nix
       ./user.nix
       ./virtualisation.nix
   ];
