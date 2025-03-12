@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }: {
     virtualisation.libvirtd = {
         enable = true;
+        nss = {
+            enable = true;
+            enableGuest = true;
+        };
         qemu = {
             package = pkgs.qemu_kvm;
             runAsRoot = true;
