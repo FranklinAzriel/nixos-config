@@ -1,1 +1,10 @@
 PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null); PS1_CMD2=$()'; PS1='\[\e[91;1m\]\u\[\e[0m\] \[\e[93m\]at\[\e[0m\] \[\e[92;1m\]\H\[\e[0m\] \[\e[96m\]in\[\e[0m\] \[\e[94;1m\]\w\[\e[0m\] \[\e[95m\]${PS1_CMD1}\[\e[0m\] \n\[\e[92m\]\\$\[\e[0m\] \[\e]0;${PS1_CMD2}\a\]'
+
+# Android SDK
+# Check if the Android SDK directory exists in the user's home directory.
+if [ -d "$HOME/Android/Sdk" ]; then
+    export ANDROID_HOME=$HOME/Android/Sdk # If the directory exists, set the ANDROID_HOME environment variable to the path of the SDK.
+    export PATH=$PATH:$ANDROID_HOME/platform-tools # Add the platform-tools directory to the PATH environment variable so that adb and fastboot can be run from any directory.
+    export PATH=$PATH:$ANDROID_HOME/emulator # Add the emulator directory to the PATH environment variable so that the Android emulator can be run from any directory.
+    export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin # Add the cmdline-tools/latest/bin directory to the PATH environment variable so that sdkmanager and avdmanager can be run from any directory.
+fi
