@@ -6,6 +6,7 @@
             runAsRoot = true;
             swtpm.enable = true;
             ovmf.enable = true;
+            vhostUserPackages = with pkgs; [ virtiofsd ];
         };
     };
 
