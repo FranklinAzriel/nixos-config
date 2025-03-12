@@ -8,6 +8,13 @@
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
+    configurationLimit = 1;
+    settings = {
+      beep = false;
+      default = "auto-windows ";
+      timeout = 3;
+      reboot-for-bitlocker = true;
+    };
   };
   
   boot.initrd.systemd.enable = true;
@@ -15,7 +22,6 @@
   boot.loader = {
     efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
     };
   };
 
@@ -25,13 +31,6 @@
   ];
 
   boot = {
-    loader = {
-      timeout = 3;
-      systemd-boot = {
-        rebootForBitlocker = true;
-        editor = false;
-      };
-    };
     plymouth = {
       enable = true;
       theme = "bgrt";
