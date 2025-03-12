@@ -6,7 +6,7 @@
     imports = [
         ./git.nix
         ./gpg.nix
-        
+        ./mangohud.nix
         ./packages.nix
         ./shell.nix
     ];
