@@ -24,7 +24,14 @@
     pkgs.efibootmgr
   ];
 
-  boot = {    
+  boot = {
+    loader = {
+      timeout = 3;
+      systemd-boot = {
+        rebootForBitlocker = true;
+        editor = false;
+      };
+    };
     plymouth = {
       enable = true;
       theme = "bgrt";
@@ -41,7 +48,6 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "rd.luks.options=tpm2-device=auto"
-    ];
-    loader.timeout = 3;
+    ];  
   };
 }
