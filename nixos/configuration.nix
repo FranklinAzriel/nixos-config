@@ -6,6 +6,7 @@
       ../hardware-configuration.nix
 
       ./bootloader.nix
+      ./container.nix
       ./desktop.nix
       ./drivers.nix
       ./kernel.nix
@@ -15,17 +16,20 @@
       ./steam.nix
       ./user.nix
       ./virtualisation.nix
+      ./zram.nix
   ];
   
+  nix.settings.auto-optimise-store = true;
+  
+  services.fwupd.enable = true;
+
+  boot.tmp.useTmpfs = true;
+  boot.tmp.cleanOnBoot = true;
+
   programs.nh = {
     enable = true;
     clean.enable = true;
     flake = "/etc/nixos";
-  };
-
-  zramSwap = {
-    enable = true;
-    priority = 32767;
   };
 
   nixpkgs.config.allowUnfree = true;
