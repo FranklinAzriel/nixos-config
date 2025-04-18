@@ -1,6 +1,8 @@
 { config, pkgs, ... }: {
     home.packages = with pkgs; [
-
+	
+	# Shell
+	fzf
         # Browser
         google-chrome
 
@@ -11,7 +13,10 @@
         # Development
         git
         gnupg
-	    vscode
+
+        # IDE
+	vscode
+        jetbrains.idea-community-bin
 
         # Multimedia
         vlc
@@ -20,5 +25,7 @@
         # Games
         prismlauncher
 
+	# Password Manager
+	bitwarden-desktop
     ];
 }
