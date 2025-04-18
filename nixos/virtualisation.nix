@@ -6,7 +6,7 @@
             enableGuest = true;
         };
         qemu = {
-            package = pkgs.qemu_kvm;
+            package = pkgs.qemu_full;
             runAsRoot = true;
             swtpm.enable = true;
             ovmf.enable = true;
@@ -14,9 +14,13 @@
         };
     };
 
+    boot.binfmt.emulatedSystems = [
+	"riscv64-linux"
+    ];
+
     environment.systemPackages = with pkgs; [
         virt-manager
     ];
 
-    #virtualisation.vmware.host.enable = true;
+#    virtualisation.vmware.host.enable = true;
 }
