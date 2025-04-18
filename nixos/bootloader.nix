@@ -14,6 +14,7 @@
       default = "auto-windows ";
       timeout = 3;
       reboot-for-bitlocker = true;
+      editor = true;
     };
   };
   
@@ -35,6 +36,7 @@
       enable = true;
       theme = "bgrt";
     };
+
     # Enable "Silent Boot"
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -47,6 +49,7 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "rd.luks.options=tpm2-device=auto"
+#      "resume=PARTLABEL=SWAPPART"
     ];  
   };
 }
