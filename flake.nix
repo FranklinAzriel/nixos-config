@@ -9,28 +9,36 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {
-    nixosConfigurations = {
-      Holy-Nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos/configuration.nix
+  outputs = inputs@{ nixpkgs, chaotic, home-manager, lanzaboote, ... }: {
+    nixosConfigurations.Holy-Nix = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # CachyOS 
+        chaotic.nixosModules.nyx-cache
+        chaotic.nixosModules.nyx-overlay
+        chaotic.nixosModules.nyx-registry
 
-          lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+        # Lanzaboote
+        lanzaboote.nixosModules.lanzaboote
 
-            home-manager.users.FranklinAzriel = import ./home-manager/home-manager.nix;
-          }
-        ];
-      };
+        #./build.nix
+        ./nixos/configuration.nix
+        
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          home-manager.users.FranklinAzriel = import ./home-manager/home-manager.nix;
+        }
+      ];
     };
   };
 }
