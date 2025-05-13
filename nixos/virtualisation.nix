@@ -21,6 +21,4 @@
     environment.systemPackages = with pkgs; [
         virt-manager
     ];
-
-#    virtualisation.vmware.host.enable = true;
 }
