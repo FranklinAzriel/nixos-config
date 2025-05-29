@@ -25,5 +25,8 @@
     environment.systemPackages = with pkgs; [
       kdePackages.plasma-vault
       kdePackages.qtsvg
+      
+      # Cursors
+      bibata-cursors
     ];
 }
