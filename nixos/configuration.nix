@@ -16,6 +16,7 @@
       ./steam.nix
       ./user.nix
       ./virtualisation.nix
+      ./wine.nix
       ./zram.nix
   ];
   
