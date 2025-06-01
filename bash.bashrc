@@ -16,3 +16,9 @@ fi
 if [ -d "$HOME/flutter/bin" ]; then
     export PATH="$PATH:$HOME/flutter/bin" # Add the Flutter SDK directory to the PATH environment variable so that flutter can be run from any directory.
 fi
+
+# Check if the Bitwarden SSH Agent socket exists
+# If it does, export SSH_AUTH_SOCK to use the Bitwarden SSH Agent
+if [ -e "$HOME/.bitwarden-ssh-agent.sock" ]; then
+    export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+fi
