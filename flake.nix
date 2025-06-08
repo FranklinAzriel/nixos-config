@@ -29,7 +29,6 @@
         # Lanzaboote
         lanzaboote.nixosModules.lanzaboote
 
-        #./build.nix
         ./nixos/configuration.nix
         
         home-manager.nixosModules.home-manager {
