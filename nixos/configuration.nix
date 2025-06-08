@@ -12,6 +12,7 @@
       ./kernel.nix
       ./luks.nix
       ./network.nix
+      ./openssh.nix
       ./packages.nix
       ./steam.nix
       ./user.nix
