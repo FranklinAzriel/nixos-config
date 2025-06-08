@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-    boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    boot.kernelPackages = pkgs.linuxPackages;
     
     boot.extraModprobeConfig = ''
         options kvm_amd nested=1

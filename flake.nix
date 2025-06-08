@@ -9,23 +9,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, chaotic, home-manager, lanzaboote, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }: {
     nixosConfigurations.Holy-Nix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # CachyOS 
-        chaotic.nixosModules.nyx-cache
-        chaotic.nixosModules.nyx-overlay
-        chaotic.nixosModules.nyx-registry
-
         # Lanzaboote
         lanzaboote.nixosModules.lanzaboote
 
