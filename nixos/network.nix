@@ -13,4 +13,6 @@
         wantedBy = [ "default.target" ];
         serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
     };
+
+    services.tailscale.enable = true;
 }
