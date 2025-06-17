@@ -11,6 +11,7 @@
             swtpm.enable = true;
             ovmf.enable = true;
             vhostUserPackages = with pkgs; [ virtiofsd ];
+            ovmf.packages = [ pkgs.OVMFFull.fd ];
         };
     };
 
