@@ -13,6 +13,8 @@
         alsa.support32Bit = true;
     };
     
+    programs.noisetorch.enable = true;
+    
     services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
       "monitor.bluez.properties" = {
       "bluez5.enable-sbc-xq" = true;
