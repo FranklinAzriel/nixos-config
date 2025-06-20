@@ -5,6 +5,7 @@
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
 
+      ./audio.nix
       ./bootloader.nix
       ./container.nix
       ./desktop.nix
