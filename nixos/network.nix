@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }: {
     networking.hostName = "Holy-Nix"; # Define your hostname.
-    networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+    networking.networkmanager.enable = true;
+    networking.networkmanager.wifi.backend = "iwd";
     
     hardware.bluetooth = {
         enable = true; # enables support for Bluetooth
