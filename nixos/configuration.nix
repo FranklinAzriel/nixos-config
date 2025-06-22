@@ -22,6 +22,10 @@
   ];
   
   nix.settings.auto-optimise-store = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocales = ["all"];
   
   services.fwupd.enable = true;
 
