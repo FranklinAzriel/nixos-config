@@ -19,6 +19,8 @@
       ./user.nix
       ./virtualisation.nix
       ./zram.nix
+
+      ./firewall/fail2ban.nix
   ];
   
   nix.settings.auto-optimise-store = true;
