@@ -11,6 +11,9 @@
       kdePackages.filelight
       kdePackages.kolourpaint
       kdePackages.kteatime
+
+      # Virtual desktops
+      pkgs.kara
       
       # Cursors
       bibata-cursors
