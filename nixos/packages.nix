@@ -4,6 +4,11 @@
         pkgs.pciutils
         pkgs.cachix
 
+        # Archiving tools
+        pkgs.libarchive
+        pkgs.zip
+        pkgs.unzip
+
         # Build tools
         pkgs.gcc
         pkgs.binutils
