@@ -19,6 +19,7 @@
         # IDE
 	    vscode
         jetbrains.idea-community-bin
+        postman
 
         # Multimedia
         vlc
