@@ -22,3 +22,9 @@ fi
 if [ -e "$HOME/.bitwarden-ssh-agent.sock" ]; then
     export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 fi
+
+# Check if the Miniconda installation exists in the user's home directory
+if [ -d "$HOME/miniconda3" ]; then
+    # If the conda.sh script exists, source it to enable conda commands
+    . "$HOME/miniconda3/etc/profile.d/conda.sh"
+fi
