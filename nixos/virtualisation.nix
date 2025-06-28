@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }: {
+
     virtualisation.libvirtd = {
-        enable = true;
+        enable = true; # Enable libvirt daemon
         nss = {
-            enable = true;
+            enable = true; # 
             enableGuest = true;
         };
         qemu = {
@@ -16,9 +17,8 @@
     };
 
     environment.systemPackages = with pkgs; [
-        virt-manager
+        virt-manager # View and manage virtual machines
     ];
     
-    virtualisation.vmware.host.enable = true;
-
+    virtualisation.vmware.host.enable = true; # Enable VMware host support
 }
