@@ -28,3 +28,12 @@ if [ -d "$HOME/miniconda3" ]; then
     # If the conda.sh script exists, source it to enable conda commands
     . "$HOME/miniconda3/etc/profile.d/conda.sh"
 fi
+
+# Check if the FNM (Fast Node Manager) directory exists in the user's home directory
+# If it does, add it to the PATH and initialize FNM
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+  eval "$(fnm env --use-on-cd --shell bash)"
+fi
