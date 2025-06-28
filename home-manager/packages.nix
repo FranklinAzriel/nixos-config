@@ -15,11 +15,12 @@
         # Development
         git
         gnupg
-
+        postman
+        dbeaver-bin
+        
         # IDE
 	    vscode
         jetbrains.idea-community-bin
-        postman
 
         # Multimedia
         vlc
