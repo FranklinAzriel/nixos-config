@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
-    virtualisation.docker.enable = true;
-    environment.systemPackages = [ pkgs.distrobox ];
+
+    virtualisation.docker.enable = true; # Enable Docker support
+    environment.systemPackages = [ pkgs.distrobox ]; # Distrobox for container management
 }
