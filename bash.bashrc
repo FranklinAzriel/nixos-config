@@ -1,6 +1,22 @@
-PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null); PS1_CMD2=$()'; PS1='\[\e[91;1m\]\u\[\e[0m\] \[\e[93m\]at\[\e[0m\] \[\e[92;1m\]\H\[\e[0m\] \[\e[96m\]in\[\e[0m\] \[\e[94;1m\]\w\[\e[0m\] \[\e[95m\]${PS1_CMD1}\[\e[0m\] \n\[\e[92m\]\\$\[\e[0m\] \[\e]0;${PS1_CMD2}\a\]'
+
+PROMPT_COMMAND='
+PS1_CMD1=$(git branch --show-current 2>/dev/null)
+'
+
+PS1='\[\e[91;1m\]\u\[\e[0m\] \
+\[\e[38;5;206m\]at\[\e[0m\] \
+\[\e[38;5;214;1m\]\H\[\e[0m\] \
+\[\e[93m\]in\[\e[0m\] \
+\[\e[92;1m\]\w\[\e[0m\] \
+\[\e[96m\]${PS1_CMD1}\[\e[0m\] \n\
+\[\e[92m\]\\$\[\e[0m\] '
 
 eval "$(fzf --bash)"
+
+# Check if user binary directory exists
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH" # If it exists, add it to the PATH
+fi
 
 # Android SDK
 # Check if the Android SDK directory exists in the user's home directory.
