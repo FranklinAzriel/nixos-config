@@ -11,7 +11,6 @@
       ./desktop.nix
       ./drivers.nix
       ./kernel.nix
-      ./luks.nix
       ./network.nix
       ./openssh.nix
       ./packages.nix
