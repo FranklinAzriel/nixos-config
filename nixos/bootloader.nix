@@ -26,6 +26,7 @@
   boot.loader = {
     efi = {
         canTouchEfiVariables = true; # NOTE: Disable this if you need removable media support.
+        efiSysMountPoint = "/efi"; # Mount point for the EFI system partition.
     };
   };
 
