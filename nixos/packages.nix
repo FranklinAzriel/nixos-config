@@ -8,6 +8,7 @@
         pkgs.libarchive
         pkgs.zip
         pkgs.unzip
+        pkgs.zlib
 
         # Build tools
         pkgs.gcc
