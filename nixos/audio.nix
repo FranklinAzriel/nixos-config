@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }: {
 
+    # rtkit is optional but recommended
+    security.rtkit.enable = true;
     # Enable PipeWire and its components
     services.pipewire = {
         enable = true;
