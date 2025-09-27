@@ -18,6 +18,11 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH" # If it exists, add it to the PATH
 fi
 
+# Check if sdkman is installed
+if [ -e "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+    . "$HOME/.sdkman/bin/sdkman-init.sh" # Initialize SDKMAN! if it is installed
+fi
+
 # Android SDK
 # Check if the Android SDK directory exists in the user's home directory.
 if [ -d "$HOME/Android/Sdk" ]; then
