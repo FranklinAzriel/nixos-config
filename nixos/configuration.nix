@@ -10,7 +10,9 @@
       ./container.nix
       ./desktop.nix
       ./drivers.nix
+      ./fonts.nix
       ./kernel.nix
+      ./limits.nix
       ./network.nix
       ./openssh.nix
       ./packages.nix
