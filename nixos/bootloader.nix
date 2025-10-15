@@ -57,4 +57,12 @@
       "rd.luks.options=tpm2-device=auto" # For unlocking LUKS partitions with TPM2.
     ];  
   };
+
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-128b.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
+
 }
