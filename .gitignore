@@ -1,2 +1,3 @@
 host-specific/
 hardware-configuration.nix
+flake.lock
