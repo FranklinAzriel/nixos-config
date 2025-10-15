@@ -17,5 +17,5 @@
         serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
     };
 
-    #services.tailscale.enable = true; # Enable Tailscale.
+    services.tailscale.enable = true; # Enable Tailscale.
 }
