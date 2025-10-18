@@ -6,12 +6,12 @@
             enable = true; # 
             enableGuest = true;
         };
-        qemu = {
-            package = pkgs.qemu_full;
-            runAsRoot = true;
-            swtpm.enable = true;
-            vhostUserPackages = with pkgs; [ virtiofsd ];
-        };
+        #qemu = {
+            #package = pkgs.qemu_full;
+            #runAsRoot = true;
+            #swtpm.enable = true;
+            #vhostUserPackages = with pkgs; [ virtiofsd ];
+        #};
     };
 
     environment.systemPackages = with pkgs; [
