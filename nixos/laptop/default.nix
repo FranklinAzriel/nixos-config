@@ -17,6 +17,7 @@
   
 	imports = [
     ../../hardware-configuration.nix
+    ./hardware-configuration
 
 		./audio
 		./connectivity
