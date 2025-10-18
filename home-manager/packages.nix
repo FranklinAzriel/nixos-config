@@ -34,8 +34,8 @@
       python3
       python3Packages.pip
       virtualenv
-      nodejs
-      nodePackages.npm
+      #nodejs
+      #nodePackages.npm
 
       kubectl
       kubernetes-helm
