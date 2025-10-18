@@ -1,4 +1,4 @@
-{ config, lib, stablePkgs, unstablePkgs, ... }: {
+{ pkgs, ... }: {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -15,29 +15,24 @@
   };
 
   
-  imports = [
-      # Include the results of the hardware scan.
-      ../hardware-configuration.nix
+	imports = [
+    ../../hardware-configuration.nix
 
-      ./appimage.nix
-      ./audio.nix
-      ./bootloader.nix
-      ./container.nix
-      ./desktop.nix
-      ./drivers.nix
-      ./fonts.nix
-      ./kernel.nix
-      ./limits.nix
-      ./network.nix
-      ./openssh.nix
-      ./packages.nix
-      ./steam.nix
-      ./user.nix
-      ./virtualisation.nix
-      ./zram.nix
+		./audio
+		./connectivity
+		./desktop
+		#./firewall
+    ./games
+		./packages
+		./virtualization
 
-      ./firewall/fail2ban.nix
-  ];
+		./appimage.nix
+		./bootloader.nix
+		./drivers.nix
+		./openssh.nix
+		./user.nix
+		./zram.nix
+	];
   
   nix.settings.auto-optimise-store = true;
 
@@ -48,9 +43,6 @@
   i18n.extraLocales = ["all"];
   
   services.fwupd.enable = true;
-
-  boot.tmp.useTmpfs = true;
-  boot.tmp.cleanOnBoot = true;
 
   programs.nh = {
     enable = true;

@@ -1,5 +1,5 @@
-{ config, lib, pkgs, ... }: {
-
+{ pkgs, ... }: {
+    # Enable and configure Steam.
     programs.steam = {
         enable = true; # Enable Steam
         gamescopeSession.enable = true; 
@@ -11,6 +11,4 @@
         ];
     };
     
-    programs.gamemode.enable = true;
-    programs.gamescope.enable = true;
 }

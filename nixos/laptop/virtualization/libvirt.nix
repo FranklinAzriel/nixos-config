@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }: {
-
-    virtualisation.libvirtd = {
-        enable = true; # Enable libvirt daemon
+{ pkgs, ... }: {
+     # Enable libvirt daemon
+     virtualisation.libvirtd = {
+        enable = true;
         nss = {
             enable = true; # 
             enableGuest = true;
@@ -18,5 +18,4 @@
         virt-manager # View and manage virtual machines
     ];
     
-    #virtualisation.vmware.host.enable = true; # Enable VMware host support
 }

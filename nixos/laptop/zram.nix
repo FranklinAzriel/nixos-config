@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
 
     services.zram-generator = {
         enable = true; # Enable zram-generator service

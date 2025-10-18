@@ -1,15 +1,5 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
     environment.systemPackages = [
-        pkgs.file
-        pkgs.pciutils
-        pkgs.cachix
-
-        # Archiving tools
-        pkgs.libarchive
-        pkgs.zip
-        pkgs.unzip
-        pkgs.zlib
-
         # Build tools
         pkgs.gcc
         pkgs.binutils
@@ -21,10 +11,7 @@
         pkgs.libtool
         pkgs.gnum4
         pkgs.pkg-config
-
-        # 
         pkgs.glib
         pkgs.glibc
-    
     ];
 }
