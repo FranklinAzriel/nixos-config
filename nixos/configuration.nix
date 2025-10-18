@@ -1,6 +1,20 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, stablePkgs, unstablePkgs, ... }: {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings = {
+    trusted-users = [ "FranklinAzriel" ];
+
+    substituters = [
+      "https://nix-community.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
+  
   imports = [
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
@@ -43,7 +57,7 @@
     clean.enable = true;
     flake = "/etc/nixos";
   };
-
+  
   nixpkgs.config.allowUnfree = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
