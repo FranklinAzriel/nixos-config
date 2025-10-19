@@ -31,6 +31,7 @@
 		./appimage.nix
 		./bootloader.nix
 		./drivers.nix
+    ./flatpak.nix
 		./openssh.nix
     ./sysctl.nix
     ./udev-rules.nix
