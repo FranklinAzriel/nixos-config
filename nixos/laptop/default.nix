@@ -24,6 +24,7 @@
 		./desktop
 		#./firewall
     ./games
+    ./hardening
 		./packages
 		./virtualization
 
@@ -31,6 +32,8 @@
 		./bootloader.nix
 		./drivers.nix
 		./openssh.nix
+    ./sysctl.nix
+    ./udev-rules.nix
 		./user.nix
 		./zram.nix
 	];
