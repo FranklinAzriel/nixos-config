@@ -1,4 +1,4 @@
 { pkgs, ... }: {
-    boot.kernelPackages = pkgs.linuxPackages; # Use the default kernel packages
+    boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
 
 }
