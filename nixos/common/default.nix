@@ -6,6 +6,7 @@
         ./fonts.nix
         ./kernel.nix
         ./limits.nix
+        ./locale.nix
         ./nix-helper.nix
         ./nix.nix
         ./tmpfs.nix
