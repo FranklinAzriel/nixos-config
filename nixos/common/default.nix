@@ -9,6 +9,7 @@
         ./locale.nix
         ./nix-helper.nix
         ./nix.nix
+        ./sysrq.nix
         ./tmpfs.nix
         ./user.nix
     ];
