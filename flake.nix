@@ -1,82 +1,120 @@
 {
-  description = "Holy NixOS - Made With Love";
+	description = "Holy NixOS - Made With Love";
 
-  inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+	inputs = {
+    	nixpkgs-stable.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
+    	nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+	    home-manager = {
+    	  	url = "github:nix-community/home-manager";
+      		inputs.nixpkgs.follows = "nixpkgs-unstable";
+    	};
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-  };
+    	lanzaboote = {
+      		url = "github:nix-community/lanzaboote/v0.4.2";
+      		inputs.nixpkgs.follows = "nixpkgs-unstable";
+    	};
 
-  outputs = inputs@{ nixpkgs-stable, nixpkgs-unstable, home-manager, lanzaboote, self, ... }:
-  let
+    	disko = { 
+      		url = "github:nix-community/disko";
+      		inputs.nixpkgs.follows = "nixpkgs-unstable";
+    	};
+
+		chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+  	};
+
+  	outputs = inputs@{ nixpkgs-stable, nixpkgs-unstable, home-manager, chaotic, lanzaboote, disko, self, ... }:
+  	let
     system = "x86_64-linux";
 
+	stablePkgs = import nixpkgs-stable {
+		inherit system;
+	};
+
     unstablePkgs = import nixpkgs-unstable {
-      inherit system;
+    	inherit system;
     };
 
-    # Reusable options for both NixOS integration and standalone Home Manager
+    # Reusable Home Manager options
     HomeManagerOptions = {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.extraSpecialArgs = { inherit unstablePkgs; };
-      home-manager.users.FranklinAzriel = import ./home-manager/home-manager.nix;
+    	home-manager.useGlobalPkgs = true;
+      	home-manager.useUserPackages = true;
+      	home-manager.extraSpecialArgs = { inherit unstablePkgs; };
+      	home-manager.users.FranklinAzriel = import ./home-manager/home-manager.nix;
     };
     
-  in {
-    # 1. NixOS Configuration for Laptop
-    # Use: nixos-rebuild switch --flake .#Holy-Nix
-    nixosConfigurations.Holy-Nix = nixpkgs-unstable.lib.nixosSystem {
-      inherit system;
+  	in {
+    	#
+    	# 1. NixOS Configuration for Laptop
+    	# Usage: nixos-rebuild switch --flake .#Holy-Nix
+    	#
+    	nixosConfigurations.Holy-Nix = nixpkgs-unstable.lib.nixosSystem {
+      		inherit system;
       
-      specialArgs = {
-        inherit unstablePkgs;
-      };
+      		specialArgs = {
+        		inherit unstablePkgs;
+				inherit stablePkgs;
+      		};
 
-      modules = [
-        # Bootloader
-        lanzaboote.nixosModules.lanzaboote
+      		modules = [
+        		# Bootloader / Secure Boot
+        		lanzaboote.nixosModules.lanzaboote
+        		chaotic.nixosModules.default
 
-        # System Configurations
-        ./nixos/common/default.nix
-        ./nixos/laptop/default.nix
-
-        # General System Options
-        {
-          nix.settings.trusted-users = [ "FranklinAzriel" ];
-        }
+        		# System Configurations
+        		./nixos/common/default.nix
+        		./nixos/laptop/default.nix
         
-        # Home Manager Integration (for NixOS)
-        home-manager.nixosModules.home-manager
-        HomeManagerOptions
-      ];
-    };
-
-    # 2. Standalone Home Manager Configuration
-    # Use: home-manager switch --flake .#homeConfigurations.FranklinAzriel
-    homeConfigurations.FranklinAzriel = home-manager.lib.homeManagerConfiguration {
-      inherit system;
-      
-      # pkgs is required for standalone Home Manager
-      pkgs = unstablePkgs; 
-
-      # Use the same configuration options
-      modules = [
-        HomeManagerOptions
-      ];
-    };
+        		# Home Manager Integration
+        		home-manager.nixosModules.home-manager
+        		HomeManagerOptions
+      		];
+    	};
     
-    # 3. Alias for the standalone Home Manager configuration
-    # Use: home-manager switch --flake .#home-manager
-    home-manager = self.homeConfigurations.FranklinAzriel;
-  };
+    	#
+    	# 2. NixOS Configuration for Homelab
+    	# Usage: nixos-rebuild switch --flake .#homelab
+    	#
+    	nixosConfigurations.homelab = nixpkgs-stable.lib.nixosSystem {
+      		inherit system;
+
+      		specialArgs = {
+        		inherit unstablePkgs;
+      		};
+
+      		modules = [
+        		# System Configurations
+        		./nixos/common/default.nix
+        		./nixos/homelab/default.nix
+        		./hardware-configuration.nix
+
+        		# Home Manager Integration
+        		home-manager.nixosModules.home-manager
+        		HomeManagerOptions
+      		];
+    	};
+
+    	#
+    	# 3. Standalone Home Manager Configuration
+    	# Usage: home-manager switch --flake .#homeConfigurations.FranklinAzriel
+    	#
+    	homeConfigurations.FranklinAzriel = home-manager.lib.homeManagerConfiguration {
+      		inherit system;
+      
+      		# pkgs is required for standalone Home Manager
+      		pkgs = stablePkgs; 
+
+      		modules = [
+        		HomeManagerOptions
+				chaotic.homeManagerModules.default
+      		];
+    	};
+    
+    	#
+    	# 4. Alias for standalone Home Manager
+    	# Usage: home-manager switch --flake .#home-manager
+    	#
+    	home-manager = self.homeConfigurations.FranklinAzriel;
+  	};
 }
