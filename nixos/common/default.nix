@@ -7,6 +7,7 @@
         ./kernel.nix
         ./limits.nix
         ./nix-helper.nix
+        ./nix.nix
         ./tmpfs.nix
         ./user.nix
     ];
