@@ -8,5 +8,7 @@
         pkgs.cachix
 
         pkgs.nh
+
+        pkgs.openssl
     ];
 }
