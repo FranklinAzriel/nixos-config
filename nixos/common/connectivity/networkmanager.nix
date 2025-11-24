@@ -1,4 +1,9 @@
 { pkgs, ... }: {
-    networking.networkmanager.enable = true; # Enable NetworkManager for managing network connections.
-    networking.networkmanager.wifi.backend = "iwd"; # Use iwd for Wi-Fi backend.
+    networking.networkmanager = {
+        enable = true; # Enable NetworkManager for managing network connections.
+        wifi.backend = "iwd"; # Use iwd for Wi-Fi backend.
+    };
+    services.resolved = {
+        enable = true;
+    };
 }
