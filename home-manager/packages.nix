@@ -22,7 +22,7 @@
 
       # Social Media
       telegram-desktop
-      discord
+      discord-krisp
       thunderbird
 
       # Development
@@ -36,9 +36,11 @@
       virtualenv
       #nodejs
       #nodePackages.npm
-
+      jq
+      wget    
       kubectl
       kubernetes-helm
+      
       # IDE
 	    vscode
       #jetbrains.idea-community-bin
@@ -46,6 +48,9 @@
       # Multimedia
       vlc
       obs-studio
+      davinci-resolve
+      playerctl
+      ffmpeg
 
       # Games
       (prismlauncher.override {
@@ -58,13 +63,19 @@
       # Tools
       qdiskinfo        
 
-	    # Password Manager
+	    # Identity
 	    bitwarden-desktop
+      kdePackages.kleopatra
 
       # Torrent
       qbittorrent
-      transmission_4
+      transmission_4      
 
-      playerctl
+      # Other
+      xmrig
+      btop
+      htop
+
+      
     ];
 }
