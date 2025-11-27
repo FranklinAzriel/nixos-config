@@ -2,7 +2,6 @@
 	description = "Holy NixOS - Made With Love";
 
 	inputs = {
-    	nixpkgs-stable.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     	nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
 	    home-manager = {
@@ -11,7 +10,7 @@
     	};
 
     	lanzaboote = {
-      		url = "github:nix-community/lanzaboote/v0.4.2";
+      		url = "github:nix-community/lanzaboote/v0.4.3";
       		inputs.nixpkgs.follows = "nixpkgs-unstable";
     	};
 
@@ -24,13 +23,9 @@
 
   	};
 
-  	outputs = inputs@{ nixpkgs-stable, nixpkgs-unstable, home-manager, chaotic, lanzaboote, disko, self, ... }:
+  	outputs = inputs@{ nixpkgs-unstable, home-manager, chaotic, lanzaboote, disko, self, ... }:
   	let
     system = "x86_64-linux";
-
-	stablePkgs = import nixpkgs-stable {
-		inherit system;
-	};
 
     unstablePkgs = import nixpkgs-unstable {
     	inherit system;
@@ -54,7 +49,6 @@
       
       		specialArgs = {
         		inherit unstablePkgs;
-				inherit stablePkgs;
       		};
 
       		modules = [
@@ -74,9 +68,9 @@
     
     	#
     	# 2. NixOS Configuration for Homelab
-    	# Usage: nixos-rebuild switch --flake .#homelab
+    	# Usage: nixos-rebuild switch --flake .#HomeLab
     	#
-    	nixosConfigurations.homelab = nixpkgs-stable.lib.nixosSystem {
+    	nixosConfigurations.HomeLab = nixpkgs-unstable.lib.nixosSystem {
       		inherit system;
 
       		specialArgs = {
@@ -103,7 +97,7 @@
       		inherit system;
       
       		# pkgs is required for standalone Home Manager
-      		pkgs = stablePkgs; 
+      		pkgs = unstablePkgs; 
 
       		modules = [
         		HomeManagerOptions
