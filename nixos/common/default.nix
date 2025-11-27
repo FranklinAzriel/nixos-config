@@ -7,6 +7,7 @@
         ./kernel.nix
         ./limits.nix
         ./locale.nix
+        ./nh.nix
         ./nix-helper.nix
         ./nix.nix
         ./sysrq.nix
