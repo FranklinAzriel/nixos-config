@@ -12,6 +12,7 @@
         ./sysrq.nix
         ./tmpfs.nix
         ./user.nix
+        ./zram.nix
     ];
 
     # This option defines the first version of NixOS you have installed on this particular machine,
