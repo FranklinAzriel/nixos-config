@@ -78,6 +78,8 @@
       		};
 
       		modules = [
+				chaotic.nixosModules.default
+				
         		# System Configurations
         		./nixos/common/default.nix
         		./nixos/homelab/default.nix
