@@ -1,8 +1,10 @@
 { ... }: {
     services.openssh = {
         enable = true;
-        PasswordAuthentication = false;
-        PermitRootLogin = "prohibit-password";
+        settings = {
+            PasswordAuthentication = false;
+            PermitRootLogin = "prohibit-password";
+        };
     };
 
     users.users.root.openssh.authorizedKeys.keys = [
