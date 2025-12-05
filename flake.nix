@@ -14,11 +14,17 @@
       		inputs.nixpkgs.follows = "nixpkgs-unstable";
     	};
 
-		chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+		clan-core = {
+ 			url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+  			# Don't do this if your machines are on nixpkgs stable.
+			# Don't worry i wont (ᵕ—ᴗ—)
+  			inputs.nixpkgs.follows = "nixpkgs-unstable";
+		};
 
+		chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   	};
 
-  	outputs = inputs@{ nixpkgs-unstable, home-manager, chaotic, lanzaboote, self, ... }:
+  	outputs = inputs@{ nixpkgs-unstable, home-manager, clan-core, chaotic, lanzaboote, self, ... }:
   	let
     system = "x86_64-linux";
 
