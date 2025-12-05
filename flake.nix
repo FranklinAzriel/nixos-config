@@ -14,16 +14,11 @@
       		inputs.nixpkgs.follows = "nixpkgs-unstable";
     	};
 
-    	disko = { 
-      		url = "github:nix-community/disko";
-      		inputs.nixpkgs.follows = "nixpkgs-unstable";
-    	};
-
 		chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
   	};
 
-  	outputs = inputs@{ nixpkgs-unstable, home-manager, chaotic, lanzaboote, disko, self, ... }:
+  	outputs = inputs@{ nixpkgs-unstable, home-manager, chaotic, lanzaboote, self, ... }:
   	let
     system = "x86_64-linux";
 
