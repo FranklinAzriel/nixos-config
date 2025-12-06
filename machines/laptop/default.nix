@@ -21,15 +21,8 @@
 		./openssh.nix
     ./sysctl.nix
     ./udev-rules.nix
-		./zram.nix
 	];
   
   services.fwupd.enable = true;
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    flake = "/etc/nixos";
-  };
 }
 

@@ -5,6 +5,7 @@
         ./connectivity
         ./virtualization
         ./bootloader.nix
+        ./k3s.nix
         ./openssh.nix
     ];
 }

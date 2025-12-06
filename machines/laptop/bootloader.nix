@@ -39,7 +39,7 @@
   # Enable Plymouth for a graphical boot splash.
   boot = {
     plymouth = {
-      enable = true;
+      enable = false;
       theme = "bgrt";
     };
 
@@ -48,20 +48,19 @@
     initrd.verbose = false;
     kernelParams = [
       "quiet"
-      "splash"
       "boot.shell_on_fail"
       "loglevel=3"
-      "rd.systemd.show_status=false"
+      "rd.systemd.show_status=true"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "rd.luks.options=tpm2-device=auto" # For unlocking LUKS partitions with TPM2.
+      "panic=10"
     ];  
   };
 
   console = {
     earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-128b.psf.gz";
-    packages = with pkgs; [ terminus_font ];
+    font = "eurlatgr";
     keyMap = "us";
   };
 
