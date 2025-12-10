@@ -22,7 +22,7 @@
 
       # Social Media
       telegram-desktop
-      discord-krisp
+      discord
       thunderbird
 
       # Development
@@ -34,8 +34,7 @@
       python3
       python3Packages.pip
       virtualenv
-      #nodejs
-      #nodePackages.npm
+      nodejs
       jq
       wget    
       kubectl
@@ -48,9 +47,9 @@
       # Multimedia
       vlc
       obs-studio
-      davinci-resolve
       playerctl
       ffmpeg
+      inkscape
 
       # Games
       (prismlauncher.override {

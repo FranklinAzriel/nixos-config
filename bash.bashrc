@@ -9,7 +9,7 @@ PROMPT_COMMAND='
 PS1_CMD1=$(git branch --show-current 2>/dev/null)
 '
 
-PS1='\[\e[91;1m\]Equal\[\e[0m\] \
+PS1='\[\e[91;1m\]Ateshi\[\e[0m\] \
 \[\e[38;5;206m\]at\[\e[0m\] \
 \[\e[38;5;214;1m\]\H\[\e[0m\] \
 \[\e[93m\]in\[\e[0m\] \

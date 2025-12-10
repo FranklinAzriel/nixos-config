@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
     	owner = "CachyOS";
     	repo = "CachyOS-Settings";
     	rev = "master";
-    	hash = "sha256-gCJd+JTLVj+VFRrP8YJC/YJSP7q5p2+Q06EDzLYAgas="; # REPLACE THIS HASH!
+    	hash = "sha256-D0Wr+dIT44emZ28kZFz+AKI9bXgAi1aHxUicfMULXyg="; # REPLACE THIS HASH!
   	};
 
   	# Declare bash and hdparm as build inputs because we need their Nix store paths for substitution
